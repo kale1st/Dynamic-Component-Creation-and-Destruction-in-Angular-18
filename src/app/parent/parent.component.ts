@@ -17,7 +17,9 @@ export class ParentComponent {
 
   loadChildComponent() {
     this.containerChildComponent.clear();
-    this.containerChildComponent.createComponent(ChildComponent);
+    const ref = this.containerChildComponent.createComponent(ChildComponent);
+    ref.instance.myVariable = 'I am data from Parent';
+
     this.myService.viewContainerRef = this.containerChildComponent;
   }
 }
